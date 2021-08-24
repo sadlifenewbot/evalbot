@@ -4,7 +4,7 @@ from discord.ext import commands
 
 activity = discord.Activity(type=discord.ActivityType.listening, name="eval")
 
-bot = commands.Bot(command_prefix=['!'], intents=intents, activity=activity)
+bot = commands.Bot(command_prefix=['!'], activity=activity)
 
 @bot.command(name="eval")
 async def eval(ctx,  *,python_code):
