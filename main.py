@@ -10,7 +10,6 @@ out, err = io.StringIO(), io.StringIO()
 sys.stdout = out
 sys.stderr = err
 
-previous_result = "The bot is ready!"
 activity = discord.Activity(type=discord.ActivityType.listening, name="eval")
 bot = commands.Bot(command_prefix=['!'], activity=activity)
 
@@ -20,7 +19,7 @@ async def on_ready():
 
 
 @bot.command(name="eval")
-async def eval(ctx,  *,python_code, previous_result=previous_result):
+async def eval(ctx,  *,python_code):
     # """for info do 'sudo help invite'"""
     python_code = python_code.replace("```py", "")
     python_code = python_code.replace("```", "")
@@ -33,7 +32,6 @@ async def eval(ctx,  *,python_code, previous_result=previous_result):
     errors = err.getvalue()
     embed = discord.Embed(title="Result", description=f"```py\n{results}\n```")
     await ctx.send(embed=embed)
-    previous_result = results
 
 token = "ODc5NjMyNDk1OTk2NDUyODc0.YSSjmQ.G5CfjCEMzFxbDq8BYjHnjNvM7"
 bot.run(token + "kk")
