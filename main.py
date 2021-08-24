@@ -6,7 +6,7 @@ activity = discord.Activity(type=discord.ActivityType.listening, name="eval")
 
 bot = commands.Bot(command_prefix=['!'], intents=intents, activity=activity)
 
-@bot.command(name="eval", ignore_extra)
+@bot.command(name="eval")
 async def eval(ctx,  *,python_code):
     # """for info do 'sudo help invite'"""
     python_code = python_code.replace("```py", "")
