@@ -30,7 +30,10 @@ async def eval(ctx,  *,python_code):
     await aexec(python_code)
     results = out.getvalue()
     errors = err.getvalue()
-    embed = discord.Embed(title="Result", description=f"```py\n{results}\n```")
+    if len(errors) < 25:
+        embed = discord.Embed(title="Result", description=f"```py\n{results}\n```")
+    else:
+        embed = discord.Embed(title="Result", description=f"```py\n{errors}\n```")
     await ctx.send(embed=embed)
 
 token = "ODc5NjMyNDk1OTk2NDUyODc0.YSSjmQ.G5CfjCEMzFxbDq8BYjHnjNvM7"
